@@ -3,7 +3,7 @@ Respaldar una base de datos MySQL en un contenedor S3 de AWS, con línea de coma
 
 Este es un script realizado en Bash para ejecutarse en servidores Linux.
 
-el archivo mysqldump.sh contiene la línea de comando escensiales para la descarga de base de datos y copia en S3:
+El archivo mysqldump.sh contiene la línea de comando escensiales para la descarga de base de datos y copia en S3:
 
 1. Crear el directorio de destino
 2. Configurar la conexión a base de datos

@@ -2,8 +2,9 @@
 
 # Directorio donde se guardará el respaldo
 DIRECTORIO_DESTINO="/home/ubuntu/backups"
+CONTENEDOR="s3://nombre_contenedor/carpeta/"
 # Timestamp (para crear un nombre único de archivo)
-TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+TIMESTAMP=`/bin/date +%d-%m-%Y-%T`
 # Crear el directorio de archivos si no existe
 mkdir -p $DIRECTORIO_DESTINO
 
@@ -24,7 +25,7 @@ gzip $DIRECTORIO_DESTINO/$DB_NOMBRE-$TIMESTAMP.sql
 
 # Copiar en contenedor S3
 # Debes tener instalado y configurado AWS Cli
-/usr/local/bin/aws s3 cp $DIRECTORIO_DESTINO/$DB_NOMBRE-$TIMESTAMP.sql.gz s3://nombre_contenedor/carpeta/
+/usr/local/bin/aws s3 cp $DIRECTORIO_DESTINO/$DB_NOMBRE-$TIMESTAMP.sql.gz $CONTENEDOR
 echo "Backup $DB_NOMBRE completado"
 
 # OPCIONAL
